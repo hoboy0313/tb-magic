@@ -32,4 +32,37 @@
     console.log('【tb-magic】脚本注入完成');
 })();
 
-### 3. 下载开发项目
+### 3. clone 项目
+
+```bash
+git clone https://github.com/hoboy0313/tb-magic.git
+```
+
+### 4. 安装依赖
+
+请使用 `pnpm` 安装依赖，没有安装的请看[这里](https://pnpm.io/zh/installation)
+
+```bash
+pnpm install
+```
+
+### 5. 运行项目
+
+```bash
+pnpm dev
+```
+
+### 6. 编辑 source/index.scss
+
+编辑后，样式会实时同步到浏览器
+
+## 任务
+
+- [ ] 淘宝首页
+- [ ] 商品详情页
+- [ ] （还有个什么忘记了
+
+## 其他文档
+
+开发指南：https://zaozaoliao.feishu.cn/docx/W4wWdlAwBof8tMxlrxQcWFgznzd
+

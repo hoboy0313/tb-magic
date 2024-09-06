@@ -1,9 +1,10 @@
+import path from 'path';
 import {createServer} from 'http';
 import {WebSocketServer} from "ws";
 import express from 'express';
+import chalk from 'chalk';
 
-import * as utils from './utils';
-import path from 'path';
+import * as utils from './utils.mjs';
 
 /* =========================== 服务请求 =========================== */
 const app = express();
@@ -11,12 +12,10 @@ const app = express();
 const HTTP_PORT = 3001;
 
 app.use('/client-listen-script', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './client.mjs'));
+    res.sendFile(path.resolve(utils.__dirname, 'client.mjs'));
 });
 
-app.listen(HTTP_PORT, () => {
-    console.log(`📦 http 服务启动成功：http://localhost:${HTTP_PORT}/client-listen-script`);
-})
+const httpSucessPromise = new Promise(r => app.listen(HTTP_PORT, r));
 
 /* =========================== websocket 请求 =========================== */
 const server = createServer(app);
@@ -46,6 +45,15 @@ ws.on('connection', function connection(ws) {
     }));
 });
 
-server.listen(WS_PORT, () => {
-    console.log(`📦 WebSocket 服务启动成功：ws://localhost:${WS_PORT}`);
-});
+const wsSuccessPromise = new Promise(r => server.listen(WS_PORT, r));
+
+Promise.all([
+    httpSucessPromise,
+    wsSuccessPromise,
+]).then(() => {
+    console.log(`📦 http 服务启动成功：${chalk.green(`http://localhost:${HTTP_PORT}/client-listen-script`)}`);
+    console.log(`📦 WebSocket 服务启动成功：${chalk.green(`ws://localhost:${WS_PORT}`)}`);
+    console.log(``);
+    console.log(`⚓️ 开发指南 ${chalk.green(`https://zaozaoliao.feishu.cn/docx/W4wWdlAwBof8tMxlrxQcWFgznzd`)}`);
+    console.log(`🚀 淘宝首页：${chalk.green(`https://www.taobao.com/`)}`);
+})

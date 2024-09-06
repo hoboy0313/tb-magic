@@ -3,8 +3,11 @@ import * as sass from 'sass';
 import chokidar from 'chokidar';
 import ora from 'ora';
 import chalk from 'chalk';
+import { fileURLToPath } from 'url';
 
 let index = 1;
+
+export const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const SCSS_SOURCE_PATH = path.resolve(__dirname, '../source/index.scss');
 
@@ -21,7 +24,7 @@ export function compileScss() {
     });
 }
 
-export function scssChangeListener(callback: (css: string, filePath: string) => void) {
+export function scssChangeListener(callback) {
     const watcher = chokidar.watch(SCSS_SOURCE_PATH);
 
     watcher.on('change', (filePath) => {
