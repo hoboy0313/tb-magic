@@ -25,7 +25,9 @@ export function compileScss() {
 }
 
 export function scssChangeListener(callback) {
-    const watcher = chokidar.watch(SCSS_SOURCE_PATH);
+    const watcher = chokidar.watch('*.scss', {
+        cwd: path.resolve(__dirname, '../source/'),
+    });
 
     watcher.on('change', (filePath) => {
         compileScss().then((css) => {

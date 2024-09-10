@@ -1,0 +1,77 @@
+@use "./_utils.scss" as utils;
+
+
+body {
+    background: #FF8C42;
+
+    .screen-outer {
+        height: 500px;
+    }
+
+    @include utils.reset();
+
+    @include utils.search_input();
+
+    @include utils.taojianghu();
+
+    @include utils.taozhibo();
+
+    @include utils.block1();
+    @include utils.block2();
+
+    @include utils.banner();
+
+    @include utils.taobao_nav();
+
+    @include utils.user();
+
+    @include utils.baiyibutie();
+
+    // // 用户信息
+    // .tbh-user {
+    //     color: #7B61FF;
+
+    //     *:not(.order-detail) {
+    //         color: inherit !important;
+    //     }
+        
+    //     .user-order-main {
+    //         padding: 6px;
+    //         box-sizing: border-box;
+    //         background: linear-gradient(180deg, rgba(252, 90, 176, 0.8) 0%, rgba(251, 143, 130, 0.8) 100%);
+    //     }
+
+    //     .user-order, .order-img {
+    //         height: 36px !important;
+
+    //         img {
+    //             width: 32px !important;
+    //             height: 32px !important;
+    //         }
+
+    //         .adv-img {
+    //             width: 100% !important;
+    //             border-radius: 4px;
+    //         }
+    //     }
+
+    //     .user-order {
+    //         width: calc(100% - 12px) !important;
+    //         a > {
+    //             height: 36px !important;
+    //         }
+    //     }
+
+    //     .order-img {
+    //         width: 36px !important;
+    //     }
+
+    //     .order-detail {
+    //         color: #fff !important;
+            
+    //         h2 {
+    //             margin-top: 2px !important;
+    //         }
+    //     }
+    // }
+}

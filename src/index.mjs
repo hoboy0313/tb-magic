@@ -38,6 +38,8 @@ ws.on('connection', function connection(ws) {
 
     utils.compileScss().then((css) => {
         ws.send(JSON.stringify({type: 'css', filePath: utils.SCSS_SOURCE_PATH, data: css}));
+    }).catch(e => {
+        console.error(e);
     });
   
     ws.send(JSON.stringify({
