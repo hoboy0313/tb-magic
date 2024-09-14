@@ -1,0 +1,355 @@
+@mixin container {
+    @at-root {
+        body {
+            @content;
+        }
+    }
+}
+
+/* 设置背景色专用 */
+@mixin bg {
+    @at-root {
+        body {
+            background: var(--bg) !important;
+
+            @content;
+        }
+    }
+}
+
+@mixin screen {
+    @at-root {
+        .screen-outer {
+            background: var(--bg) !important;
+
+            @content;
+
+            :where(.main, .main-inner) {
+                background: transparent !important;
+            }
+
+            .main-inner {
+                padding-left: 0 !important;
+            }
+        }
+    }
+}
+
+@mixin category {
+    .J_Service {
+        margin-left: 0;
+        background: var(--border-color) !important;
+        padding: 4px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        border-radius: 16px;
+
+        > * {
+            background: var(--block-bg-color) !important;
+        }
+
+        * {
+            color: var(--font-color) !important;
+        }
+
+        > div {
+            border-top-left-radius: 13px;
+            border-top-right-radius: 13px;
+        }
+
+        > ul {
+            border-bottom-left-radius: 13px;
+            border-bottom-right-radius: 13px;
+            flex: 1;
+            padding-bottom: 0 !important;
+        }
+
+        @content;
+    }
+}
+
+@mixin nav {
+    .tbh-nav {
+        background: var(--border-color) !important;
+        border-radius: 99999px !important;
+        padding: 2px !important;
+        margin-bottom: 16px !important;
+        box-sizing: border-box;
+
+        > .newnav {
+            border-radius: 99999px !important;
+            overflow: hidden;
+            background: var(--block-bg-color) !important;
+            box-sizing: border-box;
+            margin-bottom: 0 !important;
+            height: 42px !important;
+            background: #FFFACD;
+            display: flex;
+            flex-wrap: wrap;
+
+            .nav-bd {
+                line-height: 42px !important;
+            }
+        }
+
+        li {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            flex-shrink: 0;
+        }
+
+        a {
+            height: 100%;
+            line-height: 1.5;
+            padding: 2px 16px;
+            background: var(--item-bg-color) !important;
+            white-space: nowrap;
+            border-radius: 9999px !important;
+        }
+
+        .pipe {
+            display: none !important;
+        }
+
+        @content;
+    }
+}
+
+@mixin baiyibutie {
+    .business-entry-container {
+        > [class^=business-entry]:nth-of-type(2) {
+            background: var(--border-color) !important;
+
+            @content;
+
+            * {
+                color: var(--font-color) !important;
+            }
+
+            [class$=container-image] {
+                background: var(--image-bg-color) !important;
+            }
+
+            [class$=coin] {
+                color: var(--price-font-color) !important;
+            }
+        }
+    }
+}
+
+@mixin jianghu {
+    .business-entry-container {
+        > [class^=business-entry]:nth-of-type(3) {
+            box-sizing: border-box;
+            background-image: linear-gradient(to right, var(--block-bg-color), var(--block-bg-color)), var(--border-color) !important;
+            background-clip: padding-box, border-box !important;
+            background-origin: padding-box, border-box !important;
+            border: 2px solid transparent !important;
+
+            @content;
+
+            * {
+                color: var(--font-color) !important;
+            }
+            
+            :where([class*=top-title], .mytao-icon) {
+                color: var(--title-color) !important;
+            }
+        }
+    }
+}
+
+@mixin other1 {
+    .business-entry-container {
+        > [class^=business-entry]:nth-of-type(4) {
+            background: var(--border-color) !important;
+
+            @content;
+
+            * {
+                color: var(--font-color) !important;
+            }
+
+            [class$=container-image] {
+                background: var(--image-bg-color) !important;
+            }
+
+            [class$=coin] {
+                color: var(--price-font-color) !important;
+            }
+        }
+    }
+}
+
+@mixin other2 {
+    .business-entry-container {
+        > [class^=business-entry]:nth-of-type(5) {
+            background: var(--border-color) !important;
+
+            @content;
+
+            * {
+                color: var(--font-color) !important;
+            }
+
+            [class$=container-image] {
+                background: var(--image-bg-color) !important;
+            }
+
+            [class$=coin] {
+                color: var(--price-font-color) !important;
+            }
+        }
+    }
+}
+
+@mixin live {
+    .business-entry-container {
+        > [class^=business-entry]:nth-of-type(6) {
+            background: var(--block-bg-color) !important;
+            box-sizing: border-box;
+            background-image: linear-gradient(to right, var(--block-bg-color), var(--block-bg-color)), var(--border-color) !important;
+            background-clip: padding-box, border-box !important;
+            background-origin: padding-box, border-box !important;
+            border: 2px solid transparent !important;
+            @content;
+
+            :where([class*=top-title], .mytao-icon) {
+                color: var(--title-color) !important;
+            }
+        }
+    }
+}
+
+@mixin user {
+    @at-root {
+        .col-right[role=complementary] {
+            @content;
+
+            background: var(--border-color) !important;
+            border-radius: 16px;
+            margin-right: 0 !important;
+            margin-left: 10px;
+
+            .tbh-user {
+                position: relative;
+                box-sizing: border-box;
+                background-clip: padding-box;
+                margin: 4px;
+                border-radius: 13px;
+    
+                :where(.member-bd, .user-mytao, .member-column-4) {
+                    display: flex;
+                }
+    
+                .user-externalLink {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                }
+    
+                background: var(block-bg-color) !important;
+    
+                * {
+                    color: var(--font-color) !important;
+                }
+            }
+
+            .user-order-main {
+                background: var(--border-color) !important;
+                padding: 4px;
+                margin-left: 0;
+
+                > div {
+                    overflow: hidden;
+                    border-radius: inherit;
+                    
+                    * {
+                        color: var(--block-bg-color) !important;
+                    };
+                }
+            }
+
+            .user-mytao {
+                margin-top: 4px !important;
+            }
+            
+            .user-externalLink {
+                margin-top: 4px !important;
+            }
+        }
+    }
+}
+
+/** ================ 列表部分 ================  **/
+
+/* 列表容器 */
+@mixin layer {
+    @at-root {
+        .layer {
+            background: transparent !important;
+            
+            > .layer-inner {
+                background: transparent !important;
+            }
+
+            @content;
+        }
+    }
+}
+
+@mixin tab {
+    .smallTabListWrapper  {
+        border-radius: 9999px;
+        padding-left: 24px;
+        height: 60px !important;
+        margin: 8px 0 12px;
+
+        box-sizing: border-box;
+        background-image: linear-gradient(to right, var(--block-bg-color), var(--block-bg-color)), var(--border-color) !important;
+        background-clip: padding-box, border-box !important;
+        background-origin: padding-box, border-box !important;
+        border: 2px solid transparent !important;
+
+        @content;
+
+        .smallTabWrapper {
+            background: var(--item-bg-color);
+            padding: 8px 16px;
+            border-radius: 9999px;
+            margin-right: 20px;
+
+            &.smallTabWrapperSelected {
+                background: var(--item-active-bg-color);
+                color: var(--item-active-font-color);
+
+                box-sizing: border-box;
+                background-image: linear-gradient(to right, var(--item-active-bg-color), var(--item-active-bg-color)), var(--item-active-border-color) !important;
+                background-clip: padding-box, border-box !important;
+                background-origin: padding-box, border-box !important;
+                border: 1px solid transparent !important;
+            }
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+}
+
+@mixin list {
+    .tb-pick-feeds-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+
+        @content;
+
+        .tb-pick-content-item {
+            margin: 0 !important;
+            border-radius: 16px;
+        }
+    }
+}
