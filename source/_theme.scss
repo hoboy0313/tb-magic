@@ -84,7 +84,7 @@
             box-sizing: border-box;
             margin-bottom: 0 !important;
             height: 42px !important;
-            background: #FFFACD;
+            background: var(--item-bg-color);
             display: flex;
             flex-wrap: wrap;
 
@@ -250,7 +250,7 @@
                     grid-template-columns: 1fr 1fr 1fr 1fr;
                 }
     
-                background: var(block-bg-color) !important;
+                background: var(--block-bg-color) !important;
     
                 * {
                     color: var(--font-color) !important;

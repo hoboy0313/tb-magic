@@ -15,10 +15,6 @@
     @include theme.screen {
         --bg: transparent;
 
-        @include theme.user {
-            --font-color: #7B61FF;
-        }
-
         @include theme.category {
             --font-color: #7B61FF;
         }
@@ -55,6 +51,10 @@
 
         @include theme.live {
             --title-color: #7B61FF;
+        }
+
+        @include theme.user {
+            --font-color: #7B61FF;
         }
     }
 
