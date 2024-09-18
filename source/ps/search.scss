@@ -1,0 +1,208 @@
+// https://img.alicdn.com/imgextra/i1/2365397011/O1CN01bGsgTx21f5oCjEtbD_!!2365397011-2-tblife2_ugc.png
+
+body {
+    width: 100vw;
+    min-height: 101vh;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    background: #272828;
+    overflow: auto;
+
+    // =========== override ==========
+    .site-nav {
+        background: #535353 !important;
+        border-bottom: 1px dashed #ddd !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-wrap: wrap;
+
+        .site-nav-bd {
+            width: 100%;
+            order: -1;
+            background: #535353 !important;
+            padding-inline: calc(50% - 595px);
+            box-sizing: border-box;
+            background: linear-gradient(to right, #383838 0%, #383838 100%) repeat-x left bottom / 100% 2px !important;
+        }
+
+        .site-nav-menu-hd{
+            * {
+                color: #ddd;
+            }
+        }
+
+        &::before {
+            content: '';
+            display: table;
+            background-image: url(https://img.alicdn.com/imgextra/i2/2365397011/O1CN01SoAFkn21f5oCpFcPU_!!2365397011-2-tblife2_ugc.png);
+            background-repeat: no-repeat;
+            background-position: center left;
+            background-size: auto 100%;
+            width: 750px;
+            height: 40px;
+            margin-top: -1px;
+        }
+        
+        &::after {
+            content: '';
+            display: table;
+            background-image: url(https://img.alicdn.com/imgextra/i2/2365397011/O1CN01SoAFkn21f5oCpFcPU_!!2365397011-2-tblife2_ugc.png);
+            background-repeat: no-repeat;
+            background-position: center right;
+            background-size: auto 100%;
+            width: 300px;
+            height: 40px;
+            margin-left: auto;
+            margin-top: -1px;
+        }
+    }
+
+    // left-side
+    #ariaTipText {
+        position: fixed;
+        left: 0;
+        top: 75px;
+        z-index: 100;
+        min-width: initial !important;
+        width: 72px !important;
+        height: 100vh !important;
+        background: #535353 url(https://img.alicdn.com/imgextra/i2/2365397011/O1CN01rGXx4n21f5oAYePB3_!!2365397011-2-tblife2_ugc.png) no-repeat top left / contain;
+
+        * {
+            display: none !important;
+        }
+    }
+
+    // left-side-toolkit
+    .tb-toolkit {
+        width: 72px !important;
+        left: 0;
+        box-sizing: border-box;
+        right: initial !important;
+        bottom: 26vh;
+        border-top-left-radius: 0px !important;
+        border-bottom-left-radius: 0px !important;
+        border-top-right-radius: 15px !important;
+        border-bottom-right-radius: 15px !important;
+        background: #6D6D6D !important;
+
+        box-shadow: 0px 1px 2px 0px #4F4F4F !important;
+        border-radius: 0px 8px 8px 0px;
+
+        &:has(.toolkit-item-back[style*="display: block"]) {
+            border-bottom-right-radius: 0 !important;
+        }
+
+        .toolkit-item {
+            width: 72px !important;
+            background: #6D6D6D !important;
+        }
+
+        .toolkit-item-back {
+            border-bottom-left-radius: 0 !important;
+            border-bottom-right-radius: 18px !important;
+
+            &::before {
+                display: none !important;
+            }
+        }
+
+        * {
+            color: #EFF0F0 !important;
+        }
+    }
+
+    $left-width: 72px;
+    $left-gap: 50px;
+
+    $right-width: 300px;
+    $right-gap: 50px;
+
+    $top-gap: 50px;
+    $top-width: 75px;
+
+    #ice-container {
+        // --container-width: calc(100vw - #{$right-width + $left-width + $left-gap + $right-gap}) !important;
+
+        // width: var(--container-width);
+        min-width: 1040px;
+        margin-top: #{$top-width + $top-gap} !important;
+        margin-left: #{$left-width +  $left-gap} !important;
+        margin-right: #{$right-width +  $right-gap} !important;
+        border: 1px dashed #fff;
+
+        // search
+        > [class^=headerWrap] {
+            width: 100%;
+            background: #fff;
+            &[style*=fixed] {
+                top: #{$top-width} !important;
+
+                > [class^=innerWrap] {
+                    padding-right: 239px !important;
+                }
+            }
+
+            > [class^=innerWrap] {
+                width: 100%;
+                min-width: initial !important;
+            }
+        }
+
+
+        // list
+        #PageContentContainer {
+            width: 100%;
+
+            > #pageContent {
+                width: 100%;
+            }
+        }
+
+        [class^=contentWrap] {
+            border-radius: 0 !important;
+        }
+    }
+
+
+    // right-side
+    #root {
+        position: fixed;
+        top: 75px;
+        right: 0;
+        width: #{$right-width};
+        height: calc(100vh - #{$top-width});
+        background: #4D4D4D;
+        z-index: 1001;
+
+        &::before {
+            content: '';
+            z-index: 1000;
+            display: flex;
+            width: #{$right-width};
+            // size: 484 * 756
+            height: #{$right-width / 484 * 756};
+            order: -2;
+            background: url(https://img.alicdn.com/imgextra/i1/2365397011/O1CN01bqAhtx21f5o3avcxe_!!2365397011-2-tblife2_ugc.png) no-repeat top center / cover;
+        }
+
+        &::after {
+            content: '';
+            position: fixed;
+            top: 400px;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            width: #{$right-width};
+            // size: 484 * 1088
+            // height: #{$right-width / 484 * 1088}; // 674px
+            // 由于图片有阴影，把那部分高度裁剪掉，就是 632px 左右。
+            height: 632px;
+            flex-shrink: 0;
+            background: url(https://img.alicdn.com/imgextra/i2/2365397011/O1CN01aDC83r21f5oC3Przr_!!2365397011-2-tblife2_ugc.png) no-repeat top left / 100% auto;
+        }
+    }
+}
