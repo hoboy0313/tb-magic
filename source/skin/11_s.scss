@@ -1,6 +1,5 @@
 @use './theme';
 
-
 @include theme.container {
     // 边框颜色
     --border-color: linear-gradient(180deg, #FC5AB0 0%, #FB8F82 100%);
@@ -10,6 +9,8 @@
     @include theme.bg {
         --bg: #FF8C42;
     };
+
+    @include theme.logo-right;
 
     /* 分类，轮播图，用户等等核心面板区域*/
     @include theme.screen {

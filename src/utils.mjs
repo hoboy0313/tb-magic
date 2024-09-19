@@ -30,6 +30,7 @@ export function scssChangeListener(callback) {
     });
 
     watcher.on('change', (filePath) => {
+        console.log('change', filePath)
         compileScss().then((css) => {
             callback(css, filePath);
         });

@@ -1,0 +1,131 @@
+@use './theme';
+
+@include theme.container {
+    // 边框颜色
+    --border-color: #6265FF;
+    // 块元素
+    --block-bg-color: #fff;
+
+    @include theme.bg {
+        --bg: linear-gradient(133.06deg, #FCEBD9 4.04%, #FFD2FB 100%);
+    };
+
+    @include theme.site-nav {
+        .site-nav-mytaobao span {
+            color: #FF5000 !important;
+        }
+        .site-nav-openshop, .site-nav-seller {
+            span {
+                color: #3370FF;
+            }
+        }
+    }
+
+    @include theme.search {
+        border-color: #6265FF;
+
+        * {
+            color: #6265FF !important;
+        }
+        
+        path {
+            fill: #6265FF !important;
+        }
+
+        .image-search-icon {
+            filter: invert(45%) sepia(77%) saturate(3636%) hue-rotate(223deg) brightness(97%) contrast(108%);
+        }
+        
+        .btn-search {
+            background: #6265FF;
+            color: #fff !important
+        }
+
+        .item {
+            color: #57DDE4 !important;
+        }
+
+        .item:nth-of-type(1),.item:nth-of-type(2),.item:nth-of-type(3) {
+            color: #6265FF !important;
+        }
+    }
+
+    @include theme.logo-right;
+
+    /* 分类，轮播图，用户等等核心面板区域*/
+    @include theme.screen {
+        --bg: transparent;
+
+        @include theme.category {
+            --font-color: #7B61FF;
+        }
+
+        @include theme.nav {
+            --item-bg-color: #fff;
+            --block-bg-color: transparent;
+            --border-color: transparent;
+            border: 2px solid #6265FF;
+        }
+
+        @include theme.baiyibutie {
+            --border-color: #57DDE4;
+            --font-color: #fff;
+            --price-font-color: #FFFACD;
+            --image-bg-color: #fff;
+        }
+
+        @include theme.jianghu {
+            --font-color: #A09FFA;
+            --title-color: #7B61FF;
+        }
+
+        @include theme.other1 {
+            --font-color: #6065FF;
+            --price-font-color: #6065FF;
+            --image-bg-color: #fff;
+            --border-color: #D0F56A;
+        }
+
+        @include theme.other2 {
+            --font-color: #6065FF;
+            --price-font-color: #6065FF;
+            --image-bg-color: #fff;
+            --border-color: #D0F56A;
+        }
+
+        @include theme.live {
+            --title-color: #7B61FF;
+        }
+
+        @include theme.user {
+            --font-color: #7B61FF;
+
+            .user-order-main {
+                --border-color: #9A97FB;
+            }
+        }
+    }
+
+    /* 消息列表区域 */
+    @include theme.layer {
+        @include theme.tab {
+            --item-bg-color: #fff;
+            --item-active-bg-color: #fff;
+            --item-active-font-color: #FF4D6C;
+            --item-active-border-color: var(--border-color);
+
+            background-color: transparent !important;
+            border-color: #6265FF !important;
+
+            .smallTabWrapper {
+                color: #97D6E9;
+
+                &.smallTabWrapperSelected {
+                    border-color: #6065FF !important;
+                }
+            }
+        }
+
+        @include theme.list {}
+    }
+}
