@@ -1,0 +1,170 @@
+@use './theme';
+
+@include theme.container {
+    // 边框颜色
+    --border-color: #558CF1;
+    // 块元素
+    --block-bg-color: #F0FD61;
+
+    @include theme.bg {
+        --bg: linear-gradient(133.05deg, #A2F65D 4.05%, #BDF72F 100%);
+        background-attachment: fixed !important;
+    };
+
+    @include theme.site-nav {
+        .site-nav-mytaobao span {
+            color: #FF5000 !important;
+        }
+        .site-nav-openshop, .site-nav-seller {
+            span {
+                color: #3370FF;
+            }
+        }
+    }
+
+    @include theme.logo-left {}
+
+    @include theme.search {
+        border-color: #548CEE;
+
+        * {
+            color: #548CEE !important;
+        }
+        
+        path {
+            fill: #548CEE !important;
+        }
+
+        .image-search-icon {
+            filter: invert(67%) sepia(42%) saturate(6406%) hue-rotate(197deg) brightness(95%) contrast(96%);
+        }
+
+        .btn-search {
+            background: #548CEE;
+            color: #fff !important
+        }
+
+        .item {
+            color: #FFF !important;
+        }
+
+        .item:nth-of-type(1),.item:nth-of-type(2),.item:nth-of-type(3) {
+            color: #548CEE !important;
+        }
+    }
+
+    @include theme.logo-right;
+
+    /* 分类，轮播图，用户等等核心面板区域*/
+    @include theme.screen {
+        --bg: transparent;
+
+        @include theme.category {
+            --font-color: #6599F9;
+            --block-bg-color: #fff;
+            border: 2px solid #558CF1 !important;
+            background-image: none !important;
+            background-clip: initial !important;
+            background-color: #fff !important;
+        }
+
+        @include theme.nav {
+            --item-bg-color: #FFFACD;
+            --block-bg-color: #fff;
+            --border-color: #fff;
+            border: 2px solid #568DF2;
+        }
+
+        @include theme.baiyibutie {
+            --border-color: #F0FD61;
+            --font-color: #6599F9;
+            --price-font-color: #6599F9;
+            --image-bg-color: #fff;
+
+            border: 2px solid #fff;
+        }
+        
+        @include theme.jianghu {
+            --font-color: #548CEE;
+            --title-color: #548CEE;
+            --block-bg-color: #fff;
+            --border-color: #fff;
+
+            border: 2px solid #558CF1 !important;
+            background-color: #fff !important;
+        }
+
+        @include theme.other1 {
+            --font-color: #6599F9;
+            --price-font-color: #6599F9;
+            --image-bg-color: #fff;
+            --border-color: #FEFE30;
+            border: 2px solid #fff;
+        }
+
+        @include theme.other2 {
+            --font-color: #6599F9;
+            --price-font-color: #6599F9;
+            --image-bg-color: #fff;
+            --border-color: #FEFE30;
+            border: 2px solid #fff;
+        }
+
+        @include theme.live {
+            --title-color: #548CEE;
+            border: 2px solid #558CF1 !important;
+            background-color: #fff !important;
+        }
+
+        @include theme.user {
+            --font-color: #558CF1;
+            --avatar-border-color: #558CF1;
+            --block-bg-color: #558CF1;
+
+            .tbh-user {
+                background-image: none !important;
+                background-color: #fff !important;
+            }
+            .user-order-main {
+                --border-color: #F0FD63;
+            }
+        }
+    }
+
+    /* 消息列表区域 */
+    @include theme.layer {
+        @include theme.tab {
+            --item-font-color: #6599F9;
+            --item-bg-color: #FEFE30;
+            --item-active-bg-color: #F0FD61;
+            --item-active-font-color: #6599F9;
+            --item-active-border-color: #568DF2 !important;
+            --fixed-bg-color: #fff;
+
+            border-color: #568DF2 !important;
+
+            &.smallTabListWrapperFixed {
+                border: none !important;
+                border-radius: 0 !important;
+            }
+
+            .smallTabWrapper {
+                color: #558cf1;
+                
+                .smallTabTitle {
+                    font-weight: 600 !important;
+                }
+
+                &.smallTabWrapperSelected {
+                    border: 1px solid #568DF2 !important;
+
+                }
+                &:nth-of-type(1) {
+                    color: #FF4D6C !important;
+                }
+            }
+        }
+
+        @include theme.list {}
+    }
+}

@@ -8,6 +8,7 @@
 
     @include theme.bg {
         --bg: linear-gradient(133.06deg, #FCEBD9 4.04%, #FFD2FB 100%);
+        background-attachment: fixed !important;
     };
 
     @include theme.site-nav {
@@ -20,6 +21,8 @@
             }
         }
     }
+
+    @include theme.logo-left {}
 
     @include theme.search {
         border-color: #6265FF;
@@ -68,7 +71,7 @@
         }
 
         @include theme.baiyibutie {
-            --border-color: #57DDE4;
+            --border-color: #9A97FB;
             --font-color: #fff;
             --price-font-color: #FFFACD;
             --image-bg-color: #fff;
@@ -77,20 +80,24 @@
         @include theme.jianghu {
             --font-color: #A09FFA;
             --title-color: #7B61FF;
+            --block-bg-color: #fff;
+            --border-color: #fff;
+
+            background-color: #fff !important;
         }
 
         @include theme.other1 {
-            --font-color: #6065FF;
+            --font-color: #fff;
             --price-font-color: #6065FF;
             --image-bg-color: #fff;
-            --border-color: #D0F56A;
+            --border-color: #9A97FB;
         }
 
         @include theme.other2 {
-            --font-color: #6065FF;
+            --font-color: #fff;
             --price-font-color: #6065FF;
             --image-bg-color: #fff;
-            --border-color: #D0F56A;
+            --border-color: #9A97FB;
         }
 
         @include theme.live {
@@ -100,6 +107,11 @@
         @include theme.user {
             --font-color: #7B61FF;
 
+            --avatar-border-color: #7B61FF;
+
+            .tbh-user {
+                background-image: none !important;
+            }
             .user-order-main {
                 --border-color: #9A97FB;
             }
@@ -113,9 +125,15 @@
             --item-active-bg-color: #fff;
             --item-active-font-color: #FF4D6C;
             --item-active-border-color: var(--border-color);
+            --fixed-bg-color: var(--bg);
 
             background-color: transparent !important;
             border-color: #6265FF !important;
+
+            &.smallTabListWrapperFixed {
+                border: none !important;
+                border-radius: 0 !important;
+            }
 
             .smallTabWrapper {
                 color: #97D6E9;
