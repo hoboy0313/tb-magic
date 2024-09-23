@@ -3,6 +3,14 @@
         body {
             @content;
 
+            [class*="search-decorations--"]{
+                background-color: transparent !important;
+            }
+
+            [class*="superbanner-background-image--"] {
+                display: none;
+            }
+
             @font-face {
                 font-family: 'alifont';  /* Project id 4687833 */
                 src: url('//at.alicdn.com/t/c/font_4687833_rvnwr9z93xd.woff2?t=1726676920471') format('woff2'),
