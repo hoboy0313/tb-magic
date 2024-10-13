@@ -79,6 +79,49 @@ body {
             margin-left: auto;
             margin-top: -1px;
         }
+
+        .site-nav-menu-hover {
+            .site-nav-menu-hd {
+                background-color: #454545;
+                border-color: transparent;
+            }
+        }
+
+        .site-nav-theme,
+        .site-nav-login-info-nick {
+            color: #ddd !important;
+        }
+
+        .site-nav-menu-bd-panel {
+            background-color: #454545 !important;
+            border-color: transparent !important;
+
+            .level-info,
+            .site-nav-user-privilege {
+                color: #ddd !important;
+            }
+
+            .site-nav-user-privilege {
+                border-color: #ddd !important;
+                background: transparent !important;
+            }
+            
+            a {
+                color: #ddd !important;
+
+                &:hover {
+                    background: #333 !important;
+                }
+            }
+
+            .theme-title {
+                color: #ddd !important;
+
+                &.selected {
+                    color: #FF5000 !important;
+                }
+            }
+        }
     }
 
     // banner
@@ -144,7 +187,7 @@ body {
         margin-top: #{$top-width + $top-gap} !important;
         margin-left: #{$left-width + $left-gap} !important;
         margin-right: #{$right-width + $right-gap} !important;
-        background: #272828;
+        background: #fff;
         border: 1px dashed #fff;
 
         &::before {
@@ -172,6 +215,7 @@ body {
                     top: #{$top-width};
                     margin-left: #{$left-width + $left-gap} !important;
                     margin-right: #{$right-width} !important;
+                    min-width: initial !important;
                 }
 
                 .top-wrap {
@@ -263,300 +307,495 @@ body {
         .business-entry-container {
             position: fixed;
             top: #{$top-width};
-            right: 238px;
+            right: 239px;
             z-index: 1001;
             width: 240px;
             display: flex;
             flex-direction: column;
-            background: url(https://img.alicdn.com/imgextra/i2/2365397011/O1CN01rDi6gy21f5oApINXC_!!2365397011-2-tblife2_ugc.png) no-repeat top center / cover;
+            background-color: #535353;
+            // background: url(https://img.alicdn.com/imgextra/i2/2365397011/O1CN01rDi6gy21f5oApINXC_!!2365397011-2-tblife2_ugc.png) no-repeat top center / cover;
             // background: url(https://img.alicdn.com/imgextra/i1/2365397011/O1CN01XoFKGn21f5o7tvE1q_!!2365397011-2-tblife2_ugc.png) no-repeat top center / cover;
+            
+            &::before {
+                content: '';
+                display: table;
+                width: 100%;
+                height: 96px;
+                background: url(https://img.alicdn.com/imgextra/i2/2365397011/O1CN01rDi6gy21f5oApINXC_!!2365397011-2-tblife2_ugc.png) no-repeat top center / cover;
+            }
 
             > * {
                 flex-shrink: 0;
             }
 
-            // 百亿补贴
-            @mixin baiyibutie {
-                width: 240px !important;
-                height: auto !important;
-                display: flex;
-                flex-direction: column;
-                background: transparent !important;
-                margin-bottom: 0 !important;
-
-                > * {
-                    flex-shrink: 0;
-                    display: flex;
-                    padding-left: 0;
-                    border-bottom: 1px solid #4C4B4B;
-
-                    &:nth-of-type(1) {
+            // banner
+            @mixin banner {
+                > div:nth-of-type(1) {
+                    > div:nth-of-type(1) {
                         display: none;
                     }
-
-
-                    &::before {
-                        content: '';
-                        width: 33px;
-                        background: url(https://img.alicdn.com/imgextra/i4/2365397011/O1CN01IldNco21f5o3U71GI_!!2365397011-2-tblife2_ugc.png) no-repeat center / 20px 20px;
-                    }
                 }
+            }
 
-                [class$=card-content-container] {
-                    height: 60px !important;
-                    display: flex;
-                    padding: 2px 6px;
-                    box-sizing: border-box;
-                    align-items: center;
-                    flex: 1;
-                    border-bottom: 1px solid #4C4B4B;
+            // 百亿补贴
+            @mixin baiyibutie {
+                > div:nth-of-type(1) {
+                    margin-inline: 0 !important;
+                    width: 240px !important;
+                    height: auto !important;
+                    margin-bottom: 0 !important;
 
-                    &::after {
-                        content: '百亿补贴';
-                        display: block;
+                    // 百亿补贴
+                    > div:nth-of-type(2) {
+                        padding: 0;
+                        width: 240px !important;
+                        max-width: 240px !important;
                         flex: 1;
-                        height: 100%;
-                        font-size: 14px;
-                        line-height: 52px;
-                        color: #C9C9C9;
-                        margin-left: 10px;
-                    }
+                        border-radius: 0;
 
-                    &:hover {
-                        background: #6B6B6C;
-                        &::after {
-                            color: #EFF0F0;
+                        > .business-entry-item-card {
+                            background: transparent !important;
+                            height: auto !important;
+                            border-radius: 0;
+
+                            .business-entry-title-card-top {
+                                display: none;
+                            }
+
+                            .business-entry-item-card-content-container {
+                                width: 239px;
+                                display: block;
+                                height: auto;
+                                padding: 0;
+                                position: relative;
+
+                                &::after {
+                                    content: '';
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    width: 16px;
+                                    height: 100%;
+                                    background-color: #4A4A4A;
+                                    border-right: 1px solid #393939;
+                                    box-sizing: border-box;
+                                }
+
+                                .business-entry-item-card-content {
+                                    max-width: 239px;
+                                    width: 100%;
+                                    height: 60px;
+                                    padding-right: 16px;
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    margin-left: 0 !important;
+                                    position: relative;
+                                    border-radius: 0;
+                                    
+                                    &::before {
+                                        content: '';
+                                        flex-shrink: 0;
+                                        width: 32px;
+                                        height: 100%;
+                                        border-bottom: 1px solid #4C4C4C;
+                                        border-right: 1px solid #4C4C4C;
+                                        box-sizing: border-box;
+                                        background: url(https://img.alicdn.com/imgextra/i4/2365397011/O1CN01IldNco21f5o3U71GI_!!2365397011-2-tblife2_ugc.png) no-repeat center / 20px 20px;
+                                    }
+                                    
+                                    &::after {
+                                        content: '百亿补贴';
+                                        font-size: 14px;
+                                        color: #C9C9C9;
+                                        margin-left: 10px;
+                                    }
+
+                                    &:hover::after {
+                                        color: #EFF0F0;
+                                    }
+
+                                    .business-entry-item-card-content-container-image {
+                                        width: 52px;
+                                        height: 52px;
+                                        background: #fff;
+                                        margin-left: 10px;
+
+                                        > img {
+                                            width: inherit;
+                                            height: inherit;
+                                        }
+                                    }
+
+                                    .business-entry-item-card-content-coin,
+                                    .business-entry-item-card-content-reduction {
+                                        display: none;
+                                    }
+                                }
+                            }
                         }
-                    }
-                }
-
-                [class$=content-title-writing] {
-                    display: none;
-                }
-                [class$=content-container-image] {
-                    background: #fff;
-                    width: 52px;
-                    height: 52px;
-
-                    > img {
-                        width: 100% !important;
-                        height: 100% !important;
                     }
                 }
             }
 
             // 淘江湖
             @mixin taojianghu {
-                position: fixed;
-                top: #{$top-width + 183px};
-                right: 0;
-                z-index: 100;
-                margin: 0 !important;
-                background: #4D4D4D !important;
+                > div:nth-of-type(2) {
+                    > div:nth-of-type(1) {
+                        width: 239px !important;
+                        margin: 0 !important;
+                        position: fixed;
+                        top: #{$top-width + 185px};
+                        right: 0;
+                        z-index: 100;
+                        padding: 0;
+                        border-radius: 0;
 
-                * {
-                    color: #C9C9C9;
-                }
+                        .business-entry-bbs-card {
+                            background: #4D4D4D !important;
+                            border-radius: 0;
                 
-                .business-entry-bbs-card-content-desc {
-                    &:hover {
-                        color: #EFF0F0;
-                    }
-                }
-            }
-
-            // 户外运动
-            @mixin huwaiyundong {
-                width: 224px !important;
-                background: transparent !important;
-                height: auto !important;
-                border-radius: 0 !important;
-                margin-right: 0 !important;
-
-                > * {
-                    width: 100%;
-                    height: 60px !important;
-                    display: flex;
-                    box-sizing: border-box;
-                    align-items: center;
-                    flex: 1;
-                    padding: 0 !important;
-                    margin-left: 33px;
-                    position: relative;
-
-                    &::before {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        transform: translateX(-100%);
-                        width: 33px;
-                        height: 100%;
-                        background: url(https://img.alicdn.com/imgextra/i4/2365397011/O1CN01IldNco21f5o3U71GI_!!2365397011-2-tblife2_ugc.png) no-repeat center / 20px 20px;
-                    }
-
-                    &::after {
-                        content: '户外生活';
-                        display: block;
-                        flex: 1;
-                        height: 100%;
-                        font-size: 14px;
-                        line-height: 52px;
-                        color: #C9C9C9;
-                        margin-left: 10px;
-                    }
-
-                    &:nth-of-type(1) {
-                        display: none !important;
-                    }
-
-                    [class$=content-coin] {
-                        display: none;
-                    }
-                    [class$=content-image] {
-                        background: #fff;
-                        width: 52px;
-                        height: 52px;
-                        margin-left: 6px;
-
-                        > img {
-                            width: 100% !important;
-                            height: 100% !important;
-                        }
-                    }
-
-                    &:hover {
-                        background: #6B6B6C;
-                        &::after {
-                            color: #EFF0F0;
-                        }
-                    }
-                }
-            }
-
-            @mixin taobaomiaosha {
-                @include huwaiyundong;
-            }
-
-            @mixin taobaozhibo {
-                width: 224px !important;
-                background: transparent !important;
-                height: auto !important;
-                border-radius: 0 !important;
-                margin-right: 0 !important;
-                overflow: hidden;
-
-                > * {
-                    width: 100%;
-                    height: 60px !important;
-                    display: flex;
-                    box-sizing: border-box;
-                    align-items: center;
-                    flex: 1;
-                    padding: 2px 0 !important;
-                    margin-left: 33px;
-                    position: relative;
-                    border-radius: 0 !important;
-                    overflow: initial;
-
-                    &::before {
-                        content: '';
-                        display: block;
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        transform: translateX(-100%);
-                        width: 33px;
-                        height: 100%;
-                        background: url(https://img.alicdn.com/imgextra/i4/2365397011/O1CN01IldNco21f5o3U71GI_!!2365397011-2-tblife2_ugc.png) no-repeat center / 20px 20px;
-                    }
-
-                    &::after {
-                        display: block;
-                        flex: 1;
-                        height: 100%;
-                        font-size: 14px;
-                        line-height: 52px;
-                        color: #C9C9C9;
-                        margin-left: 10px;
-                    }
-
-                    &:nth-of-type(1) {
-                        display: none !important;
-                    }
-
-                    .business-entry-live-card-inner {
-                        background: #fff;
-                        width: 52px;
-                        height: 52px;
-                        margin-left: 6px;
-                        background-size: cover;
-                        position: static !important;
-                        overflow: initial !important;
-                    }
-                    
-                    .business-entry-live-card-inner-mask {
-                        display: none !important;
-                    }
-                    
-                    .business-entry-live-card-inner-title {
-                        width: 100%;
-                        max-width: 110px;
-                        top: 50%;
-                        left: 69px !important;
-                        transform: translateY(-50%);
-                        font-size: 14px !important;
-                        color: #C9C9C9;
-                        text-overflow: ellipsis;
-                        overflow: hidden;
-                        white-space: nowrap;
-                    }
-                    
-                    &:hover {
-                        background: #6B6B6C;
-
-                        .business-entry-live-card-inner-title {
-                            color: #EFF0F0;
-                        }
-                    }
-                }
+                            .business-entry-title-card-top {
+                                .business-entry-title-card-top-title,
+                                .mytao-icon {
+                                    color: #C9C9C9 !important;
+                                }
                 
+                                &:hover {
+                                    .business-entry-title-card-top-title,
+                                    .mytao-icon {
+                                        color: #EFF0F0 !important;
+                                    }
+                                }
+                            }
+                
+                            .business-entry-bbs-card-content-desc {
+                                color: #C9C9C9;
+                
+                                &:hover {
+                                    color: #EFF0F0;
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
-            // 百亿补贴
-            .business-entry-large-item-card {
-                @include baiyibutie;
+            @mixin item($index) {
+                > div:nth-of-type(2) {
+                    display: block;
+                    margin-inline: 0 !important;
+                    width: 240px !important;
+                    height: auto !important;
+                    margin-bottom: 0 !important;
+
+                    > div:nth-of-type(#{$index}) {
+                        display: block;
+                        height: auto;
+                        max-width: 100%;
+                        padding: 0;
+                        border-radius: 0;
+
+                        color: red !important;
+
+                        > div {
+                            width: 240px;
+                            height: auto;
+                            background: transparent !important;
+                            border-radius: 0 !important;
+                            margin-right: 0 !important;
+
+                            .business-entry-title-card-top {
+                                display: none;
+                            }
+
+                            .business-entry-item-card-content-container {
+                                width: 239px;
+                                display: block;
+                                height: auto;
+                                padding: 0;
+                                position: relative;
+
+                                &::after {
+                                    content: '';
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    width: 16px;
+                                    height: 100%;
+                                    background-color: #4A4A4A;
+                                    border-right: 1px solid #393939;
+                                    box-sizing: border-box;
+                                }
+
+                                .business-entry-item-card-content {
+                                    max-width: 239px;
+                                    width: 100%;
+                                    height: 60px;
+                                    padding-right: 16px;
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    margin-left: 0 !important;
+                                    position: relative;
+                                    border-radius: 0;
+                                    
+                                    &::before {
+                                        content: '';
+                                        flex-shrink: 0;
+                                        width: 32px;
+                                        height: 100%;
+                                        border-bottom: 1px solid #4C4C4C;
+                                        border-right: 1px solid #4C4C4C;
+                                        box-sizing: border-box;
+                                        background: url(https://img.alicdn.com/imgextra/i4/2365397011/O1CN01IldNco21f5o3U71GI_!!2365397011-2-tblife2_ugc.png) no-repeat center / 20px 20px;
+                                    }
+                                    
+                                    &::after {
+                                        content: '服饰风潮';
+                                        font-size: 14px;
+                                        color: #C9C9C9;
+                                        margin-left: 10px;
+                                    }
+
+                                    &:hover::after {
+                                        color: #EFF0F0;
+                                    }
+
+                                    .business-entry-item-card-content-container-image {
+                                        width: 52px;
+                                        height: 52px;
+                                        background: #fff;
+                                        margin-left: 10px;
+
+                                        > img {
+                                            width: inherit;
+                                            height: inherit;
+                                        }
+                                    }
+
+                                    .business-entry-item-card-content-coin,
+                                    .business-entry-item-card-content-reduction {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
-            // 户外运动
-            .business-entry-small-item-card[class^=business-entry-]:nth-of-type(4) {
-                @include huwaiyundong;
+            @mixin item2 {
+                > div:nth-of-type(2) {
+
+                    > div:nth-of-type(3) {
+                        display: block;
+                        height: auto;
+                        max-width: 100%;
+                        padding: 0;
+                        border-radius: 0;
+
+                        > div:nth-of-type(1) {
+                            width: 240px;
+                            height: auto;
+                            background: transparent !important;
+                            border-radius: 0 !important;
+                            margin-right: 0 !important;
+
+                            .business-entry-title-card-top {
+                                display: none;
+                            }
+
+                            .business-entry-item-card-content-container {
+                                width: 239px;
+                                display: block;
+                                height: auto;
+                                padding: 0;
+                                position: relative;
+
+                                &::after {
+                                    content: '';
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    width: 16px;
+                                    height: 100%;
+                                    background-color: #4A4A4A;
+                                    border-right: 1px solid #393939;
+                                    box-sizing: border-box;
+                                }
+
+                                .business-entry-item-card-content {
+                                    max-width: 239px;
+                                    width: 100%;
+                                    height: 60px;
+                                    padding-right: 16px;
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    margin-left: 0 !important;
+                                    position: relative;
+                                    border-radius: 0;
+                                    
+                                    &::before {
+                                        content: '';
+                                        flex-shrink: 0;
+                                        width: 32px;
+                                        height: 100%;
+                                        border-bottom: 1px solid #4C4C4C;
+                                        border-right: 1px solid #4C4C4C;
+                                        box-sizing: border-box;
+                                        background: url(https://img.alicdn.com/imgextra/i4/2365397011/O1CN01IldNco21f5o3U71GI_!!2365397011-2-tblife2_ugc.png) no-repeat center / 20px 20px;
+                                    }
+                                    
+                                    &::after {
+                                        content: '国际服饰';
+                                        font-size: 14px;
+                                        color: #C9C9C9;
+                                        margin-left: 10px;
+                                    }
+
+                                    &:hover::after {
+                                        color: #EFF0F0;
+                                    }
+
+                                    .business-entry-item-card-content-container-image {
+                                        width: 52px;
+                                        height: 52px;
+                                        background: #fff;
+                                        margin-left: 10px;
+
+                                        > img {
+                                            width: inherit;
+                                            height: inherit;
+                                        }
+                                    }
+
+                                    .business-entry-item-card-content-coin,
+                                    .business-entry-item-card-content-reduction {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
-            // 户外运动
-            .business-entry-small-item-card[class^=business-entry-]:nth-of-type(5) {
-                @include taobaomiaosha;
+            @mixin live {
+                > div:nth-of-type(2) {
+                    > div:has(.business-entry-live-card) {
+                        display: block;
+                        height: auto;
+                        max-width: 100%;
+                        padding: 0;
+                        border-radius: 0;
+
+                        > .business-entry-live-card {
+                            width: 240px;
+                            height: auto;
+                            background: transparent !important;
+                            border-radius: 0 !important;
+                            margin-right: 0 !important;
+
+                            .business-entry-title-card-top {
+                                display: none;
+                            }
+
+                            .business-entry-live-card-content-container {
+                                width: 239px;
+                                display: block;
+                                height: auto;
+                                padding: 0;
+                                position: relative;
+
+                                &::after {
+                                    content: '';
+                                    position: absolute;
+                                    top: 0;
+                                    right: 0;
+                                    width: 16px;
+                                    height: 100%;
+                                    background-color: #4A4A4A;
+                                    border-right: 1px solid #393939;
+                                    box-sizing: border-box;
+                                }
+
+                                .business-entry-live-card-content {
+                                    max-width: 239px;
+                                    width: 100%;
+                                    height: 60px;
+                                    padding-right: 16px;
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: flex-start;
+                                    align-items: center;
+                                    margin-left: 0 !important;
+                                    position: relative;
+                                    border-radius: 0;
+                                    
+                                    &::before {
+                                        content: '';
+                                        flex-shrink: 0;
+                                        width: 32px;
+                                        height: 100%;
+                                        border-bottom: 1px solid #4C4C4C;
+                                        border-right: 1px solid #4C4C4C;
+                                        box-sizing: border-box;
+                                        background: url(https://img.alicdn.com/imgextra/i4/2365397011/O1CN01IldNco21f5o3U71GI_!!2365397011-2-tblife2_ugc.png) no-repeat center / 20px 20px;
+                                    }
+
+                                    &:hover::after {
+                                        color: #EFF0F0;
+                                    }
+
+                                    .business-entry-live-card-inner {
+                                        width: 52px;
+                                        height: 52px;
+                                        background: #fff;
+                                        margin-left: 10px;
+                                        background-size: cover;
+                                        overflow: initial;
+
+                                        .business-entry-live-card-inner-title {
+                                            top: 50%;
+                                            left: 63px;
+                                            transform: translate(0, -50%);
+                                            font-size: 14px;
+                                            color: #C9C9C9;
+
+                                            &:hover {
+                                                color: #EFF0F0;
+                                            }
+                                        }
+
+                                        .business-entry-live-card-inner-atmosphere {
+                                            width: 10px;
+                                            height: 10px;
+                                        }
+
+                                        .business-entry-live-card-inner-mask {
+                                            display: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
 
-            // 轮播图
-            .business-entry-slide-banner {
-                height: 96px !important;
-                min-height: 0 !important;
-                overflow: hidden;
-                visibility: hidden;
-                margin: 0 !important;
-            }
+            @include banner();
+            @include baiyibutie();
+            @include taojianghu();
 
-            // 淘江湖
-            .business-entry-bbs-card {
-                @include taojianghu;
-            }
-
-            // 淘宝直播
-            .business-entry-live-card {
-                @include taobaozhibo;
-            }
+            @include item(2);
+            @include item(3);
+            @include item(4);
+            @include live();
         }
 
         // user
@@ -596,14 +835,45 @@ body {
             }
 
             .tbh-user {
+                width: 240px;
                 flex-shrink: 0;
                 border-radius: 0 !important;
                 background: #535353 !important;
                 box-sizing: border-box;
-                container-type: size;
+                padding-inline: 8px !important;
 
                 :where(.member-ft-order, .member-nick-info, .user-mytao, .user-externalLink) * {
                     color: #EFF0F0 !important;
+                }
+
+                // 购物车icon 5个。
+                .member-login a {
+                    width: 44px;
+                }
+
+                // 小轮播
+                .user-order-main {
+                    $height: 51px !important;
+
+                    margin-left: 0 !important;
+                    height: $height;
+
+                    .user-order-list {
+                        height: $height;
+                    }
+
+                    .user-order {
+                        height: $height;
+                    }
+                }
+
+                // 宝贝收藏那4个
+                .mytao-content {
+                    width: 56px !important;
+                }
+                
+                .user-externalLink-item {
+                    width: 56px !important;
                 }
 
                 @media screen and (max-height: 900px) {
@@ -617,9 +887,12 @@ body {
         .layer {
             .smallTabListWrapper {
                 top: #{$top-width + 54px} !important;
-                left: #{$left-width + $left-gap} !important;
+                left: -356px !important;
                 width: fit-content !important;
-                min-width: calc(100vw - #{$right-width + $left-width + $left-gap + $right-gap});
+                min-width: calc(100vw - 600px);
+                max-width: calc(100vw - 600px);
+                padding-left: 40px;
+                padding-right: 40px;
             }
 
             .smallTabListInnerWrapper {
@@ -631,12 +904,13 @@ body {
                 overflow-x: auto;
             }
 
-            .tb-pick-feeds-container {
+            .tb-pick-feeds-container > div {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 16px;
                 padding-inline: 16px;
                 box-sizing: border-box;
+                padding: 0;
             }
 
             .tb-pick-content-item {
@@ -661,12 +935,6 @@ body {
                 line-clamp: 2;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
-            }
-
-            .hover-border {
-                width: 100% !important;
-                left: -1px !important;
-                top: -6px !important;
             }
         }
     }

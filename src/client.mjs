@@ -29,15 +29,16 @@
             const style = document.querySelector(`style[data-file-path="${filePath}"]`);
 
             if (style) {
+                console.log('【tb-magic】收到变更的 css：', data);
                 style.innerHTML = css;
             } else {
                 const style = document.createElement('style');
                 style.innerHTML = css;
                 style.setAttribute('data-file-path', filePath);
                 document.body.appendChild(style);
+                console.log('【tb-magic】收到消息：', data);
             }
         }
 
-        console.log('【tb-magic】收到消息：', data);
     }
 })();

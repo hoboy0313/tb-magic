@@ -1,3 +1,4 @@
+@use "sass:math";
 // https://img.alicdn.com/imgextra/i1/2365397011/O1CN01bGsgTx21f5oCjEtbD_!!2365397011-2-tblife2_ugc.png
 
 body {
@@ -140,10 +141,7 @@ body {
             background: #fff;
             &[style*=fixed] {
                 top: #{$top-width} !important;
-
-                > [class^=innerWrap] {
-                    padding-right: 239px !important;
-                }
+                width: calc(100vw - 439px);
             }
 
             > [class^=innerWrap] {
@@ -184,7 +182,7 @@ body {
             display: flex;
             width: #{$right-width};
             // size: 484 * 756
-            height: #{$right-width / 484 * 756};
+            height: #{math.div($right-width, 484) * 756};
             order: -2;
             background: url(https://img.alicdn.com/imgextra/i1/2365397011/O1CN01bqAhtx21f5o3avcxe_!!2365397011-2-tblife2_ugc.png) no-repeat top center / cover;
         }

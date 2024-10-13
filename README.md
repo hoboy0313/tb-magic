@@ -16,7 +16,7 @@
 // @version      2024-09-06
 // @description  try to take over the world!
 // @author       寒
-// @match        https://www.taobao.com/*
+// @match        taobao.com/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=undefined.localhost
 // @grant        none
 // ==/UserScript==
@@ -31,6 +31,7 @@
     document.body.appendChild(script);
     console.log('【tb-magic】脚本注入完成');
 })();
+```
 
 ### 3. clone 项目
 
